@@ -81,16 +81,42 @@ export function getClientSettings(): UserManagerSettings {
     client_id: OAuthConstants.client_id,
     redirect_uri: `${OAuthConstants.clientRoot}/signin-callback`,
     post_logout_redirect_uri: `${OAuthConstants.clientRoot}/signout-callback`,
-    response_type: 'id_token token',
-    scope: 'openid profile email api.read',
-    filterProtocolClaims: true,
-    loadUserInfo: true,
-    automaticSilentRenew: true,
-    silent_redirect_uri: 'http://localhost:4200/silent-signin-callback',
+    response_type: 'code',
+    scope: 'openid profile email',
+    metadata: {
+      issuer: `${OAuthConstants.authority}/`,
+      authorization_endpoint: `${OAuthConstants.authority}/authorize`,
+      jwks_uri: `${OAuthConstants.authority}/.well-known/jwks.json`,
+      token_endpoint: `${OAuthConstants.authority}/oauth/token`,
+      userinfo_endpoint: `${OAuthConstants.authority}/userinfo`,
+      end_session_endpoint: `${OAuthConstants.authority}/v2/logout?client_id=${
+        OAuthConstants.client_id
+      }&returnTo=${encodeURI(OAuthConstants.clientRoot)}/signout-callback`,
+    },
   };
 }
 export class OAuthConstants {
   public static clientRoot = 'http://localhost:4200';
-  public static authority = 'http://localhost:5000';
-  public static client_id = 'angular_spa';
+  public static authority = 'https://dev--dbzlj9b.eu.auth0.com';
+  public static client_id = 'YEGYzdDQwNWESWY8g8TYMAV1STbJz1NM';
 }
+
+// export function getClientSettings(): UserManagerSettings {
+//   return {
+//     authority: OAuthConstants.authority,
+//     client_id: OAuthConstants.client_id,
+//     redirect_uri: `${OAuthConstants.clientRoot}/signin-callback`,
+//     post_logout_redirect_uri: `${OAuthConstants.clientRoot}/signout-callback`,
+//     response_type: 'id_token token',
+//     scope: 'openid profile email api.read',
+//     filterProtocolClaims: true,
+//     loadUserInfo: true,
+//     automaticSilentRenew: true,
+//     silent_redirect_uri: 'http://localhost:4200/silent-signin-callback',
+//   };
+// }
+// export class OAuthConstants {
+//   public static clientRoot = 'http://localhost:4200';
+//   public static authority = 'http://localhost:5000';
+//   public static client_id = 'angular_spa';
+// }
