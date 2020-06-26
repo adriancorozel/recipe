@@ -1,0 +1,12 @@
+<button mat-button *ngIf="!isLoggedIn" (click)="login()">
+  <mat-icon>person</mat-icon><span>Log in</span>
+</button>
+<div *ngIf="isLoggedIn">
+  <div *ngIf="picture" class="gravar">
+    <img class="fit" src="{{ picture }}" alt="gravatar" />
+  </div>
+  <div *ngIf="name" class="user-name">{{ name }}</div>
+  <button mat-button (click)="logout()">
+    <span>Log out</span>
+  </button>
+</div>

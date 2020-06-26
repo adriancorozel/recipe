@@ -1,0 +1,57 @@
+<div class="register-form">
+  <h2>Register</h2>
+  <form *ngIf="!success" [formGroup]="form" (ngSubmit)="onSubmit()">
+    <mat-form-field>
+      <mat-label>Your name</mat-label>
+      <input
+        matInput
+        type="text"
+        name="name"
+        formControlName="Name"
+        [(ngModel)]="userRegistration.name"
+        placeholder="e.g. John Smith"
+        required
+        autoFocus
+      />
+      <mat-error *ngIf="form.get('Name').errors?.serverError">
+        {{ form.get("Name").errors?.serverError }}
+      </mat-error>
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Your email address</mat-label>
+      <input
+        matInput
+        type="email"
+        name="email"
+        formControlName="Email"
+        [(ngModel)]="userRegistration.email"
+        placeholder="e.g. john@smith.com"
+        required
+        autoFocus
+      />
+      <mat-error *ngIf="form.get('Email').errors?.serverError">
+        {{ form.get("Email").errors?.serverError }}
+      </mat-error>
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Your password</mat-label>
+      <input
+        matInput
+        type="password"
+        name="password"
+        formControlName="Password"
+        [(ngModel)]="userRegistration.password"
+        placeholder="Must be at least 6 characters"
+        required
+        autoFocus
+      />
+      <mat-error *ngIf="form.get('Password').errors?.serverError">
+        {{ form.get("Password").errors?.serverError }}
+      </mat-error>
+    </mat-form-field>
+    <button mat-raised-button type="submit" color="primary">
+      Register
+    </button>
+    <div *ngIf="error"><strong>Oops!</strong> {{ error | json }}</div>
+  </form>
+</div>

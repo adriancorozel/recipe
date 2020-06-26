@@ -1,0 +1,12 @@
+<mat-toolbar color="primary">
+  <span>{{ title }}</span>
+  <div class="menu">
+    <button mat-button *ngIf="isLoggedIn" routerLink="/users">Users</button>
+    <button mat-button *ngIf="isLoggedIn" routerLink="/roles">Roles</button>
+  </div>
+  <span class="spacer"></span>
+  <app-login></app-login>
+</mat-toolbar>
+<div class="content">
+  <router-outlet></router-outlet>
+</div>

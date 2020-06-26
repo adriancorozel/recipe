@@ -1,0 +1,33 @@
+/* You can add global styles to this file, and also import other style files */
+
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+.spacer {
+  flex: 1 1 auto;
+}
+
+.role-0 {
+  border-left: 10px solid #ffb9c0;
+}
+.role-1 {
+  border-left: 10px solid #fbffb9;
+}
+.role-2 {
+  border-left: 10px solid #b9ffbe;
+}
+.role-3 {
+  border-left: 10px solid #ffb9fd;
+}
+.role-4 {
+  border-left: 10px solid #c4b9ff;
+}
+.role-5 {
+  border-left: 10px solid #b9fff2;
+}

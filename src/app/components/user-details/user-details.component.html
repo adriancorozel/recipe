@@ -1,0 +1,34 @@
+<div class="container" *ngIf="user && role">
+  <h2>User Details: {{ user.username }} - {{ role.name }}</h2>
+  <mat-form-field>
+    <mat-label>Username</mat-label>
+    <input matInput disabled [(value)]="user.username" />
+  </mat-form-field>
+  <mat-form-field>
+    <mat-label>Name</mat-label>
+    <input matInput disabled [(value)]="user.name" />
+  </mat-form-field>
+  <mat-form-field>
+    <mat-label>Email</mat-label>
+    <input matInput disabled [(value)]="user.email" />
+  </mat-form-field>
+  <mat-form-field>
+    <mat-label>Locked</mat-label>
+    <input matInput disabled value="{{ user.isLocked }} " />
+  </mat-form-field>
+  <mat-form-field>
+    <mat-select [(value)]="user.roleId">
+      <mat-option
+        class="role-{{ (avRole.id | hashCode | abs) % 6 }}"
+        *ngFor="let avRole of availableRoles"
+        [value]="avRole.id"
+      >
+        {{ avRole.name }}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+  <div class="navigation-buttons">
+    <button mat-raised-button color="primary" (click)="save()">Save</button>
+    <button mat-raised-button color="accent" (click)="goBack()">Back</button>
+  </div>
+</div>

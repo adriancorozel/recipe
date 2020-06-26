@@ -1,0 +1,11 @@
+.container {
+  width: 97%;
+  font-size: 2em;
+  position: fixed;
+  top: 50%;
+  margin-top: -25px;
+  border: 1px solid black;
+  padding: 15px;
+  background-color: slategrey;
+  border-radius: 15px;
+}
