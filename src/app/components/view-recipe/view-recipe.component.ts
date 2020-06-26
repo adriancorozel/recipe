@@ -19,7 +19,7 @@ export class ViewRecipeComponent implements OnInit {
 
   private applyParamsValuesFromQueryString(){
     this.activatedRoute.queryParams.subscribe(params => {
-      this.patientName = params['patientname'];
+      this.patientName = params['patientName'];
       this.medicine = params['medicine'];
       this.dosage = params['dosage'];
     });

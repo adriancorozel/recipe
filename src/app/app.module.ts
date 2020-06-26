@@ -21,15 +21,10 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { MatIconModule } from '@angular/material/icon';
 
-import { RolesComponent } from './components/roles/roles.component';
-import { UsersComponent } from './components/users/users.component';
-import { UserDetailsComponent } from './components/user-details/user-details.component';
-import { UserRoleSnippetComponent } from './components/user-role-snippet/user-role-snippet.component';
 import { AuthCallbackComponent } from './components/auth-callback/auth-callback.component';
 
 import { AuthGuardService } from './services/auth-guard.service';
 import { AuthService } from './services/auth.service';
-import { LowerCaseUrlSerializerService } from './services/lower-case-url-serializer.service';
 import { LoginComponent } from './components/login/login.component';
 import { AuthCallbackSignoutComponent } from './components/auth-callback-signout/auth-callback-signout.component';
 import { LandingComponent } from './components/landing/landing.component';
@@ -43,10 +38,6 @@ import { UrlSerializer } from '@angular/router';
 @NgModule({
   declarations: [
     AppComponent,
-    RolesComponent,
-    UsersComponent,
-    UserDetailsComponent,
-    UserRoleSnippetComponent,
     AuthCallbackComponent,
     LoginComponent,
     AuthCallbackSignoutComponent,
@@ -85,11 +76,8 @@ import { UrlSerializer } from '@angular/router';
       provide: HTTP_INTERCEPTORS,
       useClass: AuthInterceptorService,
       multi: true,
-    },
-    {
-      provide: UrlSerializer,
-      useClass: LowerCaseUrlSerializerService
     }
+    
   ],
   bootstrap: [AppComponent],
 })

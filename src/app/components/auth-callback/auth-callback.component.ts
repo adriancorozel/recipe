@@ -13,6 +13,13 @@ export class AuthCallbackComponent implements OnInit {
 
   ngOnInit() {
     this._authService.completeLogin().then(() => {
+      if(localStorage.getItem('previousUrl')){
+     
+        var url = decodeURIComponent(localStorage.getItem('previousUrl'));
+        this._router.navigateByUrl(url);
+        localStorage.removeItem('previousUrl');
+        return;
+      }
       this._router.navigate(['/'], { replaceUrl: true });
     });
   }

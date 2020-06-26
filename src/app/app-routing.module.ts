@@ -1,9 +1,6 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
-import { UsersComponent } from './components/users/users.component';
-import { UserDetailsComponent } from './components/user-details/user-details.component';
-import { RolesComponent } from './components/roles/roles.component';
 import { AuthCallbackComponent } from './components/auth-callback/auth-callback.component';
 import { LandingComponent } from './components/landing/landing.component';
 
@@ -14,19 +11,8 @@ import { SilentRefreshComponent } from './components/silent-refresh/silent-refre
 import { ViewRecipeComponent } from './components/view-recipe/view-recipe.component';
 
 const routes: Routes = [
-  { path: '', redirectTo: '/users', pathMatch: 'full' },
-  { path: 'users', component: UsersComponent, canActivate: [AuthGuardService] },
-  { path: 'viewrecipe', component: ViewRecipeComponent , canActivate: [AuthGuardService]},
-  {
-    path: 'user/:id',
-    component: UserDetailsComponent,
-    canActivate: [AuthGuardService],
-  },
-  {
-    path: 'roles',
-    component: RolesComponent,
-    canActivate: [AuthGuardService],
-  },
+  { path: '', redirectTo: 'viewRecipe', pathMatch: 'full' },
+  { path: 'viewRecipe', component: ViewRecipeComponent , canActivate: [AuthGuardService]},
   {
     path: 'signin-callback',
     component: AuthCallbackComponent,
@@ -41,7 +27,7 @@ const routes: Routes = [
   },
   {
     path: 'landing',
-    component: LandingComponent,
+    component: LandingComponent
   },
   {
     path: 'silent-signin-callback',
