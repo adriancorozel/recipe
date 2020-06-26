@@ -6,7 +6,6 @@ import { LandingComponent } from './components/landing/landing.component';
 
 import { AuthGuardService } from './services/auth-guard.service';
 import { AuthCallbackSignoutComponent } from './components/auth-callback-signout/auth-callback-signout.component';
-import { RegisterComponent } from './components/register/register.component';
 import { SilentRefreshComponent } from './components/silent-refresh/silent-refresh.component';
 import { ViewRecipeComponent } from './components/view-recipe/view-recipe.component';
 
@@ -20,10 +19,6 @@ const routes: Routes = [
   {
     path: 'signout-callback',
     component: AuthCallbackSignoutComponent,
-  },
-  {
-    path: 'register',
-    component: RegisterComponent,
   },
   {
     path: 'landing',

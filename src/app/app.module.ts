@@ -3,9 +3,6 @@ import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 
-import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
-import { InMemoryDataService } from './services/in-memory-data.service';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -28,13 +25,12 @@ import { AuthService } from './services/auth.service';
 import { LoginComponent } from './components/login/login.component';
 import { AuthCallbackSignoutComponent } from './components/auth-callback-signout/auth-callback-signout.component';
 import { LandingComponent } from './components/landing/landing.component';
-import { RegisterComponent } from './components/register/register.component';
 import { SilentRefreshComponent } from './components/silent-refresh/silent-refresh.component';
 
 import { ApplicationPipesModule } from './application-pipes.module';
 import { AuthInterceptorService } from './services/auth-interceptor.service';
 import { ViewRecipeComponent } from './components/view-recipe/view-recipe.component';
-import { UrlSerializer } from '@angular/router';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -42,7 +38,6 @@ import { UrlSerializer } from '@angular/router';
     LoginComponent,
     AuthCallbackSignoutComponent,
     LandingComponent,
-    RegisterComponent,
     SilentRefreshComponent,
     ViewRecipeComponent,
   ],
@@ -63,11 +58,8 @@ import { UrlSerializer } from '@angular/router';
     MatSnackBarModule,
     MatExpansionModule,
     MatIconModule,
-    ApplicationPipesModule,
-    HttpClientInMemoryWebApiModule.forRoot(InMemoryDataService, {
-      dataEncapsulation: false,
-      passThruUnknownUrl: true,
-    }),
+    ApplicationPipesModule
+    
   ],
   providers: [
     AuthGuardService,
