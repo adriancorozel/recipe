@@ -8,7 +8,7 @@ import { AuthService } from './services/auth.service';
   styleUrls: ['./app.component.css'],
 })
 export class AppComponent {
-  title = 'user-manager-app';
+  title = 'digital-recipe-app';
   isLoggedIn: boolean;
 
   constructor(_authService: AuthService) {
